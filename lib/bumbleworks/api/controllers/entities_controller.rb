@@ -2,15 +2,16 @@ module Bumbleworks
   module Api
     class EntitiesController < ApplicationController
       def types
-        render :json => EntityClassPresenter.from_array(Bumbleworks.entity_classes)
+        render :json => EntityClassPresenter.present(Bumbleworks.entity_classes)
       end
 
       def index
-        render :json => EntityPresenter.from_array(entity_class.all)
+        render :json => EntityPresenter.present(entity_class.all)
       end
 
       def show
-        render :json => EntityPresenter.new(entity_class.first_by_identifier(params[:id]))
+        entity = entity_class.first_by_identifier(params[:id])
+        render :json => EntityPresenter.present(entity)
       end
 
     private
