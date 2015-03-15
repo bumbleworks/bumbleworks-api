@@ -14,25 +14,18 @@ module Bumbleworks
 
         def from_array(array)
           array.map { |presented|
-            new(presented)
+            new(presented, in_collection: true)
           }
         end
       end
 
-      def initialize(presented)
+      def initialize(presented, in_collection: false)
         @presented = presented
+        @in_collection = in_collection
       end
 
-      def to_hash
-        {
-          :class => @entity_class.name,
-          :count => @entity_class.count,
-          :registered_processes => @entity_class.processes
-        }
-      end
-
-      def registered_processes
-        @entity_class.processes
+      def in_collection?
+        @in_collection == true
       end
     end
   end
