@@ -6,5 +6,8 @@ Bumbleworks::Api::Application.set_routes do
 
     match '/processes', :to => 'processes#index', :methods => [:get]
     match '/processes/:id', :to => 'processes#show', :methods => [:get]
+
+    match '/tasks', :to => 'tasks#index', :methods => [:get]
+    match '/tasks/:id', :to => 'tasks#show', :methods => [:get]
   end
 end
