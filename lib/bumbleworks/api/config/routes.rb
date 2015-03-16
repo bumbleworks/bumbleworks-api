@@ -20,5 +20,9 @@ Bumbleworks::Api::Application.set_routes do
     match '/errors', :to => 'errors#index', :methods => [:get]
     match '/processes/:pid/expressions/:id/error', :to => 'errors#show', :methods => [:get]
     match '/processes/:pid/expressions/:id/error/replay', :to => 'errors#replay', :methods => [:put]
+
+    match '/processes/:pid/expressions/:id', :to => 'expressions#show', :methods => [:get]
+    match '/processes/:pid/expressions/:id/cancel', :to => 'expressions#cancel', :methods => [:delete]
+    match '/processes/:pid/expressions/:id/kill', :to => 'expressions#kill', :methods => [:delete]
   end
 end
