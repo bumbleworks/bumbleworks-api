@@ -13,5 +13,8 @@ Bumbleworks::Api::Application.set_routes do
     match '/tasks/:id/claim', :to => 'tasks#claim', :methods => [:put]
     match '/tasks/:id/release', :to => 'tasks#claim', :methods => [:put]
     match '/tasks/:id/complete', :to => 'tasks#complete', :methods => [:put]
+
+    match '/trackers', :to => 'trackers#index', :methods => [:get]
+    match '/trackers/:id', :to => 'trackers#show', :methods => [:get]
   end
 end

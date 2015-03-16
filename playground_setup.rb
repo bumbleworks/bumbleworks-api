@@ -15,6 +15,12 @@ end
   WidgetyFidget.new(i)
 end
 
+wp = Bumbleworks.launch!('waiting_process')
+
+ProcessHelpers.wait_until(:timeout => 30) do
+  wp.reload.trackers.count == 4
+end
+
 widget_processes.first(3).each do |p|
   p.tasks.map(&:complete)
 end
