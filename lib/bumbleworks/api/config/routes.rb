@@ -24,5 +24,11 @@ Bumbleworks::Api::Application.set_routes do
     match '/processes/:pid/expressions/:id', :to => 'expressions#show', :methods => [:get]
     match '/processes/:pid/expressions/:id/cancel', :to => 'expressions#cancel', :methods => [:delete]
     match '/processes/:pid/expressions/:id/kill', :to => 'expressions#kill', :methods => [:delete]
+
+    match '/workers', :to => 'workers#index', :methods => [:get]
+    match '/workers/prune', :to => 'workers#prune_stale_worker_info', :methods => [:delete]
+    match '/workers/command/:command', :to => 'workers#change_global_state', :methods => [:put]
+    match '/workers/:id', :to => 'workers#show', :methods => [:get]
+    match '/workers/:id/command/:command', :to => 'workers#change_state', :methods => [:put]
   end
 end
