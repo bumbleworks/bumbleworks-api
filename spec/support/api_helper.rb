@@ -17,7 +17,7 @@ module ApiHelper
     if reference_object.is_a?(Class)
       "EntityClass"
     else
-      reference_object.class.name
+      reference_object.class.name.split('::').last
     end
   end
 end

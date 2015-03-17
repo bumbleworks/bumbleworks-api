@@ -9,7 +9,7 @@ describe Bumbleworks::Api::ExpressionsController do
     it "returns requested expression" do
       get "/processes/#{process.id}/expressions/#{expression.expid}"
       expect(last_response.body).to eq(
-        json_presentation_of(expression, :as => 'Expression')
+        json_presentation_of(expression)
       )
     end
   end

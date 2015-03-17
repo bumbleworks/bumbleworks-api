@@ -11,7 +11,7 @@ describe Bumbleworks::Api::TasksController do
       tasks = process.tasks.all
       get "/tasks"
       expect(last_response.body).to eq(
-        json_presentation_of(tasks, :as => 'Task')
+        json_presentation_of(tasks)
       )
     end
   end
@@ -21,7 +21,7 @@ describe Bumbleworks::Api::TasksController do
       task = process.tasks.first
       get "/tasks/#{task.id}"
       expect(last_response.body).to eq(
-        json_presentation_of(task, :as => 'Task')
+        json_presentation_of(task)
       )
     end
   end
@@ -32,7 +32,7 @@ describe Bumbleworks::Api::TasksController do
       put "/tasks/#{task.id}/claim", :claimant => "horatio"
       expect(task.reload.claimant).to eq("horatio")
       expect(last_response.body).to eq(
-        json_presentation_of(task, :as => 'Task')
+        json_presentation_of(task)
       )
     end
   end
@@ -44,7 +44,7 @@ describe Bumbleworks::Api::TasksController do
       put "/tasks/#{task.id}/release"
       expect(task.reload.claimant).to be_nil
       expect(last_response.body).to eq(
-        json_presentation_of(task, :as => 'Task')
+        json_presentation_of(task)
       )
     end
   end

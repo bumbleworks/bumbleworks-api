@@ -43,7 +43,7 @@ describe Bumbleworks::Api::ProcessesController do
       wait_until { process.tasks.count == 2 }
       get "/processes/#{process.id}"
       expect(last_response.body).to eq(
-        json_presentation_of(process, :as => 'Process')
+        json_presentation_of(process)
       )
     end
   end
