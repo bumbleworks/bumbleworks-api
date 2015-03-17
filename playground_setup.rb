@@ -1,3 +1,7 @@
+ENV['RORY_ENV'] ||= ENV['RACK_ENV'] || 'development'
+
+require 'bundler/setup'
+require 'bumbleworks/api'
 require_relative 'spec/fixtures/bumbleworks_config'
 require_relative 'spec/support/process_helpers'
 include ProcessHelpers

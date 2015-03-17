@@ -1,6 +1,3 @@
-ENV['RORY_ENV'] ||= ENV['RACK_ENV'] || 'development'
-
-require 'bumbleworks/api'
 require_relative 'playground_setup'
 
 if ENV['MOUNT_AT']
